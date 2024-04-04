@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         try {
             val module = NetworkModule()
-            val repository = AudioRepository(module.provideApi(module.provideRetrofit()))
+            val repository = AudioRepository(module.provideApi(module.provideRetrofit(applicationContext, cacheDir)))
             viewModel = ViewModelProvider(
                 this, ContextViewModelFactory(
                     this@MainActivity, repository
